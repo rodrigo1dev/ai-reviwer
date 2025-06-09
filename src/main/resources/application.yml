@@ -1,0 +1,34 @@
+openai:
+  api:
+    url: https://api.openai.com/v1
+    model: gpt-3.5-turbo
+    max-tokens: 2000
+    key: ${OPENAI_API_KEY}
+
+github:
+  app:
+    id: ${GITHUB_APP_ID}
+    installation-id: ${GITHUB_APP_INSTALLATION_ID}
+    private-key: ${GITHUB_APP_PRIVATE_KEY}
+    name: "CR Agent"
+
+review:
+  prompt:
+    system-message: |
+      Você é um desenvolvedor sênior realizando uma revisão de código.
+      Analise o código e forneça feedback construtivo em português do Brasil. Foque em:
+      - Qualidade do código
+      - Potenciais bugs
+      - Boas práticas
+      - Problemas de performance
+      - Preocupações com segurança
+      Seja conciso mas completo. Se o código estiver truncado, foque no que você pode ver.
+      Use uma linguagem profissional e respeitosa, mantendo um tom construtivo.
+
+logging:
+  level:
+    org.example.codereview: INFO
+    reactor.netty.http.client: DEBUG
+
+server:
+  port: 8080
